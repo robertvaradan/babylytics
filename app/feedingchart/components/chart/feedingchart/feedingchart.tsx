@@ -41,7 +41,11 @@ export default function FeedingChart() {
                     ></FeedingEntryItem>
                 ))}
             </div>
-            <Button color="blue" size="4" onClick={() => router.push('/log')}>
+            <Button
+                color="blue"
+                size="4"
+                onClick={() => router.push('/baby/log')}
+            >
                 Log a feeding
             </Button>
         </Flex>
