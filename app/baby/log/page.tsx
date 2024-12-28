@@ -1,5 +1,5 @@
+import LogFeedingView from '@feedingchart/app/feedingchart/components/log/logfeedingview'
 import { Theme } from '@radix-ui/themes'
-import LogFeedingView from '../feedingchart/components/log/logfeedingview'
 
 export default function Log() {
     return (

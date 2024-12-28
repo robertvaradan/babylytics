@@ -1,5 +1,5 @@
 import { Theme } from '@radix-ui/themes'
-import FeedingChartApp from './feedingchart/feedingchartapp'
+import FeedingChartApp from '../feedingchart/feedingchartapp'
 
 export default function Home() {
     return (
