@@ -95,12 +95,7 @@ export function FeedingEntryItem({
                     gap="4"
                     justify="center"
                 >
-                    <Button
-                        color="orange"
-                        variant="classic"
-                        size="3"
-                        onClick={() => setEditing(true)}
-                    >
+                    <Button color="orange" variant="classic" size="3">
                         Edit
                     </Button>
                     <Button
