@@ -6,6 +6,7 @@ import { api } from '@feedingchart/convex/_generated/api'
 import { Id } from '@feedingchart/convex/_generated/dataModel'
 import { Card, Flex, Text, Badge, Box, Button } from '@radix-ui/themes'
 import { useMutation } from 'convex/react'
+import { useRouter } from 'next/navigation'
 
 export function FeedingEntryItem({
     feedingEntry,
@@ -19,6 +20,7 @@ export function FeedingEntryItem({
     [key: string]: unknown
 }) {
     const removeFeeding = useMutation(api.feedings.remove)
+    const router = useRouter()
 
     return (
         <Card size={'3'} className="rounded-none" {...rootDOMAttributes}>
@@ -95,7 +97,14 @@ export function FeedingEntryItem({
                     gap="4"
                     justify="center"
                 >
-                    <Button color="orange" variant="classic" size="3">
+                    <Button
+                        color="orange"
+                        variant="classic"
+                        size="3"
+                        onClick={() =>
+                            router.push(`/baby/log/${feedingEntry._id}`)
+                        }
+                    >
                         Edit
                     </Button>
                     <Button

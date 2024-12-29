@@ -10,7 +10,14 @@ export const get = query({
                 .query('feedings')
                 .filter((query) => query.eq(query.field('userId'), args.userId))
                 .collect()
-        ).sort((a, b) => a.time - b.time)
+        ).sort((a, b) => -(a.time - b.time))
+    },
+})
+
+export const getById = query({
+    args: { id: v.optional(v.id('feedings')) },
+    handler: async (ctx, args) => {
+        return args.id ? await ctx.db.get(args.id) : undefined
     },
 })
 
