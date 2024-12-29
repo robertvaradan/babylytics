@@ -26,10 +26,6 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <head>
-                {/* eslint-disable-next-line @next/next/no-sync-scripts */}
-                <script src="http://localhost:3000"></script>
-            </head>
             <body
                 className={`${geistSans.variable} ${geistMono.variable} antialiased overscroll-none`}
             >
