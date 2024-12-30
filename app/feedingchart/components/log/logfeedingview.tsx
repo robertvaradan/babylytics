@@ -88,7 +88,12 @@ export default function LogFeedingView({
                     })}
                 </Box>
             )}
-            <Flex direction="column" gap="4" className="flex-grow p-4">
+            <Flex
+                direction="column"
+                gap="4"
+                className="flex-grow p-4"
+                minHeight="0"
+            >
                 <Flex
                     className="flex-shrink"
                     direction="row"
