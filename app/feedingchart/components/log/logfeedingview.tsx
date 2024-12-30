@@ -35,13 +35,23 @@ export default function LogFeedingView({
     /* Feeding data */
     const date = editFeeding ? new Date(editFeeding.time) : new Date()
 
-    const [dateString, setDateString] = useState(
-        date.toISOString().split('T')[0]
-    )
+    const initialDateWithSlashes = date.toLocaleDateString('en-US', {
+        day: 'numeric',
+        month: 'numeric',
+        year: 'numeric',
+    })
+
+    const [month, day, year] = initialDateWithSlashes.split('/')
+
+    const initialDateString = `${year}-${month}-${day}`
+
+    const [dateString, setDateString] = useState(initialDateString)
 
     const [timeString, setTimeString] = useState(
-        date.toISOString().split('T')[1].slice(0, 5)
+        date.toLocaleTimeString('en-US', { hour12: false })
     )
+
+    console.log(dateString, timeString)
 
     const [type, selectType] = useState(
         editFeeding != null
@@ -62,7 +72,7 @@ export default function LogFeedingView({
 
     const feeding = {
         userId: '1',
-        time: new Date(`${dateString}T${timeString}:00.000Z`),
+        time: new Date(`${dateString}T${timeString}`),
         durationL: type !== FeedingType.Breast ? 0 : leftDuration,
         durationR: type !== FeedingType.Breast ? 0 : rightDuration,
         type,
