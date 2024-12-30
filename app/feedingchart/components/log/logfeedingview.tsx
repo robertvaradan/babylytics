@@ -31,9 +31,16 @@ export default function LogFeedingView({
     const router = useRouter()
 
     const [screen, setScreen] = useState(Screen.Date)
+
     /* Feeding data */
-    const [date, setDate] = useState(
-        editFeeding ? new Date(editFeeding.time) : new Date()
+    const date = editFeeding ? new Date(editFeeding.time) : new Date()
+
+    const [dateString, setDateString] = useState(
+        date.toISOString().split('T')[0]
+    )
+
+    const [timeString, setTimeString] = useState(
+        date.toISOString().split('T')[1].slice(0, 5)
     )
 
     const [type, selectType] = useState(
@@ -55,7 +62,7 @@ export default function LogFeedingView({
 
     const feeding = {
         userId: '1',
-        time: date,
+        time: new Date(`${dateString}T${timeString}:00.000Z`),
         durationL: type !== FeedingType.Breast ? 0 : leftDuration,
         durationR: type !== FeedingType.Breast ? 0 : rightDuration,
         type,
@@ -111,7 +118,12 @@ export default function LogFeedingView({
                     </IconButton>
                 </Flex>
                 {screen === Screen.Date && (
-                    <DateScreen date={date} onDateChange={setDate}></DateScreen>
+                    <DateScreen
+                        date={dateString}
+                        time={timeString}
+                        onDateChange={setDateString}
+                        onTimeChange={setTimeString}
+                    ></DateScreen>
                 )}
                 {screen === Screen.Type && (
                     <FeedingTypeScreen

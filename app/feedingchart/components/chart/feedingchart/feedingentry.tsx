@@ -24,7 +24,7 @@ export function FeedingEntryItem({
 
     return (
         <Card size={'3'} className="rounded-none" {...rootDOMAttributes}>
-            <Flex justify="between" gap="4" wrap="wrap">
+            <Flex justify="between" align="center" gap="4" wrap="wrap">
                 <Flex gap="4" flexShrink="0" justify="between" flexGrow="1">
                     <Flex gap="4" align="center" flexGrow="1">
                         <Box>
@@ -62,29 +62,37 @@ export function FeedingEntryItem({
                                 ? 'Formula'
                                 : 'Donor'}
                         </Badge>
-                        {feedingEntry.type != FeedingType.Breast && (
-                            <Text>{feedingEntry.amountMl}ml</Text>
-                        )}
                     </Flex>
                     <Box>
-                        <Flex gap="4">
-                            <Text className="w-12" size="2">
-                                Left:
-                            </Text>
+                        {feedingEntry.type != FeedingType.Breast ? (
+                            <Flex gap="4">
+                                <Text size="2">Amount: </Text>
+                                <Text size="2" weight="bold">
+                                    {feedingEntry.amountMl}ml
+                                </Text>
+                            </Flex>
+                        ) : (
+                            <>
+                                <Flex gap="4">
+                                    <Text className="w-12" size="2">
+                                        Left:
+                                    </Text>
 
-                            <Text size="2" weight="bold">
-                                {feedingEntry.durationL}min
-                            </Text>
-                        </Flex>
-                        <Flex gap="4">
-                            <Text className="w-12" size="2">
-                                Right:
-                            </Text>
+                                    <Text size="2" weight="bold">
+                                        {feedingEntry.durationL} min
+                                    </Text>
+                                </Flex>
+                                <Flex gap="4">
+                                    <Text className="w-12" size="2">
+                                        Right:
+                                    </Text>
 
-                            <Text size="2" weight="bold">
-                                {feedingEntry.durationR}min
-                            </Text>
-                        </Flex>
+                                    <Text size="2" weight="bold">
+                                        {feedingEntry.durationR} min
+                                    </Text>
+                                </Flex>
+                            </>
+                        )}
                     </Box>
                 </Flex>
                 <Flex
