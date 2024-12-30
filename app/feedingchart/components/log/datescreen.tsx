@@ -27,7 +27,9 @@ export function DateScreen({
                         onChange={(e) =>
                             onDateChange(
                                 new Date(
-                                    e.target.value +
+                                    new Date(e.target.value).toLocaleDateString(
+                                        'en-US'
+                                    ) +
                                         ' ' +
                                         date.toLocaleTimeString('en-US')
                                 )
