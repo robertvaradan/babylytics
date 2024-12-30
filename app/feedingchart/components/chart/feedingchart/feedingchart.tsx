@@ -15,7 +15,7 @@ export default function FeedingChart() {
     const router = useRouter()
 
     return (
-        <Flex direction="column" className="p-4 h-dvh" flexShrink="0" gap="4">
+        <Flex direction="column" className="p-4 min-h-0" flexGrow="1" gap="4">
             <div
                 className="flex flex-col gap-4 h-full overflow-y-auto no-scrollbar"
                 onClick={() => setSelected(undefined)}

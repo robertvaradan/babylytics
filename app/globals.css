@@ -28,3 +28,8 @@
         margin: 0;
     }
 }
+
+.TabsContent[data-state='inactive'] {
+    flex-grow: 0;
+    padding: 0;
+}
