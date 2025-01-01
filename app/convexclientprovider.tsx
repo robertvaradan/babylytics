@@ -7,30 +7,33 @@ import { ReactNode, useEffect, useState } from 'react'
 const convex = new ConvexReactClient(process.env.NEXT_PUBLIC_CONVEX_URL!)
 
 export function ConvexClientProvider({ children }: { children: ReactNode }) {
-    const [updatedTheme, setUpdatedTheme] = useState(
-        undefined as undefined | 'light' | 'dark'
-    )
-
-    let defaultTheme: 'light' | 'dark' = 'light'
-
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        defaultTheme = 'dark'
-    }
+    const [appearance, setAppearance] = useState('light' as 'light' | 'dark')
 
     useEffect(() => {
+        // Add listener to update styles
         window
             .matchMedia('(prefers-color-scheme: dark)')
-            .addEventListener('change', (e) => {
-                if (e.matches) {
-                    setUpdatedTheme('dark')
-                } else {
-                    setUpdatedTheme('light')
-                }
-            })
-    })
+            .addEventListener('change', (e) =>
+                setAppearance(e.matches ? 'dark' : 'light')
+            )
+
+        // Setup dark/light mode for the first time
+        setAppearance(
+            window.matchMedia('(prefers-color-scheme: dark)').matches
+                ? 'dark'
+                : 'light'
+        )
+
+        // Remove listener
+        return () => {
+            window
+                .matchMedia('(prefers-color-scheme: dark)')
+                .removeEventListener('change', () => {})
+        }
+    }, [])
 
     return (
-        <Theme appearance={updatedTheme ?? defaultTheme}>
+        <Theme appearance={appearance}>
             <ConvexProvider client={convex}>{children}</ConvexProvider>
         </Theme>
     )
