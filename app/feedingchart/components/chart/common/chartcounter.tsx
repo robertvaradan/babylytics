@@ -52,7 +52,9 @@ export function ChartCounter({
             </Callout.Icon>
             <Callout.Text>
                 <Button onClick={onClick} color={color} variant="ghost">
-                    {title} {timeAgo}
+                    <span className="text-left">
+                        {title} {timeAgo}
+                    </span>
                 </Button>
             </Callout.Text>
         </Callout.Root>

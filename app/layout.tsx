@@ -28,6 +28,7 @@ export default function RootLayout({
         <html lang="en" suppressHydrationWarning>
             <head>
                 <meta name="mobile-web-app-capable" content="yes" />
+                <meta name="apple-mobile-web-app-capable" content="yes" />
                 <meta
                     name="apple-mobile-web-app-status-bar-style"
                     media="(prefers-color-scheme: light)"
