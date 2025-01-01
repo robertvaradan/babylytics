@@ -22,7 +22,21 @@ export function FeedingEntryItem({
     return (
         <EntryCard
             onDelete={() =>
-                removeFeeding({ id: feedingEntry._id as Id<'feedings'> })
+                confirm(
+                    `Are you sure you want to delete this feeding entry from ${new Date(
+                        feedingEntry.time
+                    ).toLocaleDateString('en-US', {
+                        day: 'numeric',
+                        month: 'short',
+                        year: 'numeric',
+                    })} at ${new Date(feedingEntry.time).toLocaleTimeString(
+                        'en-US',
+                        {
+                            hour: 'numeric',
+                            minute: 'numeric',
+                        }
+                    )}?`
+                ) && removeFeeding({ id: feedingEntry._id as Id<'feedings'> })
             }
             onEdit={() => router.push(`/baby/feeding/log/${feedingEntry._id}`)}
         >

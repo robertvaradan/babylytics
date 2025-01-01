@@ -20,7 +20,20 @@ export function DiaperEntryItem({
 
     return (
         <EntryCard
-            onDelete={() => removeDiaper({ id: diaper._id as Id<'diapers'> })}
+            onDelete={() => {
+                confirm(
+                    `Are you sure you want to delete this diaper change entry from ${new Date(
+                        diaper.time
+                    ).toLocaleDateString('en-US', {
+                        day: 'numeric',
+                        month: 'short',
+                        year: 'numeric',
+                    })} at ${new Date(diaper.time).toLocaleTimeString('en-US', {
+                        hour: 'numeric',
+                        minute: 'numeric',
+                    })}?`
+                ) && removeDiaper({ id: diaper._id as Id<'diapers'> })
+            }}
             onEdit={() => router.push(`/baby/diaper/log/${diaper._id}`)}
         >
             <Box>
