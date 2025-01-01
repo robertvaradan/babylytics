@@ -14,7 +14,7 @@ import { DateScreen } from './datescreen'
 import { useMutation } from 'convex/react'
 import { api } from '@feedingchart/convex/_generated/api'
 import { Id } from '@feedingchart/convex/_generated/dataModel'
-import { blue } from '@radix-ui/colors'
+import { blue, whiteP3A } from '@radix-ui/colors'
 
 enum Screen {
     Date = 0,
@@ -36,8 +36,8 @@ export default function LogFeedingView({
     const date = editFeeding ? new Date(editFeeding.time) : new Date()
 
     const initialDateWithSlashes = date.toLocaleDateString('en-US', {
-        day: 'numeric',
-        month: 'numeric',
+        day: '2-digit',
+        month: '2-digit',
         year: 'numeric',
     })
 
@@ -86,7 +86,10 @@ export default function LogFeedingView({
     return (
         <Flex direction="column" className="h-dvh">
             {editFeeding && (
-                <Box className="p-4" style={{ background }}>
+                <Box
+                    className="p-4"
+                    style={{ background, color: whiteP3A.whiteA12 }}
+                >
                     Editing {editFeeding.type} feeding from&nbsp;
                     {new Date(editFeeding.time).toLocaleDateString('en-US', {
                         day: 'numeric',

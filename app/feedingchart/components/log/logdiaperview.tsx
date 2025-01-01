@@ -8,7 +8,7 @@ import { DateScreen } from './datescreen'
 import { useMutation } from 'convex/react'
 import { api } from '@feedingchart/convex/_generated/api'
 import { Id } from '@feedingchart/convex/_generated/dataModel'
-import { purple } from '@radix-ui/colors'
+import { purple, whiteP3A } from '@radix-ui/colors'
 import { Diaper, DiaperType } from '../../model/diaper'
 import { DiaperTypesScreen } from './diapertypesscreen'
 
@@ -27,8 +27,8 @@ export default function LogDiaperView({ editDiaper }: { editDiaper?: Diaper }) {
     const date = editDiaper ? new Date(editDiaper.time) : new Date()
 
     const initialDateWithSlashes = date.toLocaleDateString('en-US', {
-        day: 'numeric',
-        month: 'numeric',
+        day: '2-digit',
+        month: '2-digit',
         year: 'numeric',
     })
 
@@ -67,7 +67,10 @@ export default function LogDiaperView({ editDiaper }: { editDiaper?: Diaper }) {
     return (
         <Flex direction="column" className="h-dvh">
             {editDiaper && (
-                <Box className="p-4" style={{ background }}>
+                <Box
+                    className="p-4"
+                    style={{ background, color: whiteP3A.whiteA12 }}
+                >
                     Editing diaper from&nbsp;
                     {new Date(editDiaper.time).toLocaleDateString('en-US', {
                         day: 'numeric',

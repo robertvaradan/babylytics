@@ -18,9 +18,26 @@ export function DateScreen({
                 color="orange"
                 variant="surface"
                 onClick={() => {
-                    onDateChange(new Date().toISOString().split('T')[0])
+                    const resetDateWithSlashes = new Date().toLocaleDateString(
+                        'en-US',
+                        {
+                            day: '2-digit',
+                            month: '2-digit',
+                            year: 'numeric',
+                        }
+                    )
+
+                    const [month, day, year] = resetDateWithSlashes.split('/')
+
+                    const resetDateString = `${year}-${month}-${day}`
+
+                    onDateChange(resetDateString)
                     onTimeChange(
-                        new Date().toISOString().split('T')[1].slice(0, 5)
+                        new Date().toLocaleTimeString('en-US', {
+                            hour12: false,
+                            hour: '2-digit',
+                            minute: '2-digit',
+                        })
                     )
                 }}
             >
