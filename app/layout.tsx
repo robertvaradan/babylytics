@@ -27,7 +27,7 @@ export default function RootLayout({
     return (
         <html lang="en" suppressHydrationWarning>
             <body
-                className={`${geistSans.variable} ${geistMono.variable} antialiased overscroll-none`}
+                className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-hidden overscroll-none`}
             >
                 <ConvexClientProvider>{children}</ConvexClientProvider>
             </body>

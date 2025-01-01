@@ -15,7 +15,7 @@ export function DateScreen({
         <Flex direction="column" justify="center" gap="4">
             <Button
                 size="4"
-                color="blue"
+                color="orange"
                 variant="surface"
                 onClick={() => {
                     onDateChange(new Date().toISOString().split('T')[0])
@@ -42,6 +42,7 @@ export function DateScreen({
                     <input
                         className="h-full text-center bg-transparent w-full"
                         type="time"
+                        step="60"
                         value={time}
                         onChange={(event) => onTimeChange(event.target.value)}
                     />

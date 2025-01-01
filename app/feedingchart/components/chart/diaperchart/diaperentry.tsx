@@ -1,6 +1,6 @@
 import { Diaper, DiaperType } from '@feedingchart/app/feedingchart/model/diaper'
 import { api } from '@feedingchart/convex/_generated/api'
-import { Text, Badge, Box } from '@radix-ui/themes'
+import { Text, Badge, Box, Flex } from '@radix-ui/themes'
 import { useMutation } from 'convex/react'
 import { useRouter } from 'next/navigation'
 import { EntryCard } from '../../entry/entrycard'
@@ -43,21 +43,28 @@ export function DiaperEntryItem({
                     })}
                 </Text>
             </Box>
-            <Badge
-                color={
-                    diaper.type === DiaperType.Wet
-                        ? 'yellow'
-                        : diaper.type === DiaperType.Stool
-                        ? 'brown'
-                        : 'green'
-                }
-            >
-                {diaper.type === DiaperType.Wet
-                    ? 'Wet'
-                    : diaper.type === DiaperType.Stool
-                    ? 'Stool'
-                    : 'Dry'}
-            </Badge>
+            <Flex gap="4">
+                {diaper.types
+                    .sort((a, b) => a.localeCompare(b, 'en-US'))
+                    .map((type, i) => (
+                        <Badge
+                            key={i}
+                            color={
+                                type === DiaperType.Wet
+                                    ? 'yellow'
+                                    : type === DiaperType.Stool
+                                    ? 'purple'
+                                    : 'green'
+                            }
+                        >
+                            {type === DiaperType.Wet
+                                ? 'Wet'
+                                : type === DiaperType.Stool
+                                ? 'Stool'
+                                : 'Dry'}
+                        </Badge>
+                    ))}
+            </Flex>
         </EntryCard>
     )
 }

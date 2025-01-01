@@ -4,7 +4,7 @@ export type Diaper = {
     _id: string
     userId: string
     time: Date
-    type: DiaperType
+    types: DiaperType[]
 }
 
 export enum DiaperType {
@@ -16,7 +16,9 @@ export enum DiaperType {
 export const DiaperSchemaValidator = v.object({
     userId: v.string(),
     time: v.number(),
-    type: v.union(v.literal('wet'), v.literal('stool'), v.literal('dry')),
+    types: v.array(
+        v.union(v.literal('wet'), v.literal('stool'), v.literal('dry'))
+    ),
 })
 
 export type RawDiaperEntry = {
@@ -24,7 +26,7 @@ export type RawDiaperEntry = {
     _creationTime: number
     userId: string
     time: number
-    type: 'wet' | 'stool' | 'dry'
+    types: ('wet' | 'stool' | 'dry')[]
 }
 
 export function fromRawDiaperEntry(diaper: RawDiaperEntry): Diaper {
@@ -32,6 +34,6 @@ export function fromRawDiaperEntry(diaper: RawDiaperEntry): Diaper {
         _id: diaper._id,
         userId: diaper.userId,
         time: new Date(diaper.time),
-        type: diaper.type as DiaperType,
+        types: diaper.types as DiaperType[],
     }
 }

@@ -1,3 +1,5 @@
+import LogDiaperView from '@feedingchart/app/feedingchart/components/log/logdiaperview'
+
 export default function LogDiaper() {
-    return <div>Log diaper</div>
+    return <LogDiaperView></LogDiaperView>
 }
