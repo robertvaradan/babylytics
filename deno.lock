@@ -12,6 +12,7 @@
     "npm:convex@^1.17.4": "1.17.4_react@19.0.0_react-dom@19.0.0__react@19.0.0",
     "npm:eslint-config-next@15.1.0": "15.1.0_eslint@9.17.0_typescript@5.7.2_@typescript-eslint+parser@8.18.0__eslint@9.17.0__typescript@5.7.2_eslint-plugin-import@2.31.0__eslint@9.17.0",
     "npm:eslint@9": "9.17.0",
+    "npm:moment@^2.30.1": "2.30.1",
     "npm:next@^15.1.3": "15.1.3_react@19.0.0_react-dom@19.0.0__react@19.0.0",
     "npm:postcss@8": "8.4.49",
     "npm:react-dom@19": "19.0.0_react@19.0.0",
@@ -2458,6 +2459,9 @@
     "minipass@7.1.2": {
       "integrity": "sha512-qOOzS1cBTWYF4BH8fVePDBOO9iptMnGUEZwNc/cMWnTV2nVLZ7VoNWEPHkYczZA0pdoA7dl6e7FL659nX9S2aw=="
     },
+    "moment@2.30.1": {
+      "integrity": "sha512-uEmtNhbDOrWPFS+hdjFCBfy9f2YoyzRpwcl+DqpC6taX21FzsTLQVbMV/W7PzNSX6x/bhC1zA3c2UQ5NzH6how=="
+    },
     "ms@2.1.3": {
       "integrity": "sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA=="
     },
@@ -3356,6 +3360,7 @@
         "npm:convex@^1.17.4",
         "npm:eslint-config-next@15.1.0",
         "npm:eslint@9",
+        "npm:moment@^2.30.1",
         "npm:next@^15.1.3",
         "npm:postcss@8",
         "npm:react-dom@19",
