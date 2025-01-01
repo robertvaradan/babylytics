@@ -6,6 +6,12 @@
 }
 
 @layer utilities {
+    @media (prefers-color-scheme: dark) {
+        body {
+            background-color: color(display-p3 0.067 0.067 0.074);
+        }
+    }
+
     /* Hide scrollbar for Chrome, Safari and Opera */
     .no-scrollbar::-webkit-scrollbar {
         display: none;

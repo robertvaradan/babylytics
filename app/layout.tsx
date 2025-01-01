@@ -27,15 +27,16 @@ export default function RootLayout({
     return (
         <html lang="en" suppressHydrationWarning>
             <head>
+                <meta name="apple-mobile-web-app-capable" content="yes" />
                 <meta
                     name="apple-mobile-web-app-status-bar-style"
                     media="(prefers-color-scheme: light)"
-                    content="#fff"
+                    content="default"
                 />
                 <meta
                     name="apple-mobile-web-app-status-bar-style"
                     media="(prefers-color-scheme: dark)"
-                    content="color(display-p3 0.067 0.067 0.074)"
+                    content="black-translucent"
                 />
             </head>
             <body
