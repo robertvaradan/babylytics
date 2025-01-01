@@ -3,10 +3,20 @@ import { Flex, Tabs } from '@radix-ui/themes'
 import FeedingChart from './components/chart/feedingchart/feedingchart'
 import { DiaperChart } from './components/chart/diaperchart/diaperchart'
 import { useSearchParams } from 'next/navigation'
+import { Suspense } from 'react'
 
 export default function FeedingChartApp() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <FeedingChartAppContent></FeedingChartAppContent>
+        </Suspense>
+    )
+}
+
+function FeedingChartAppContent() {
     const searchParams = useSearchParams()
     const tab = searchParams.get('tab') ?? 'feedings'
+
     return (
         <Tabs.Root className="flex flex-col h-dvh" defaultValue={tab}>
             <Tabs.List
