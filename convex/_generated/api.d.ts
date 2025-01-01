@@ -13,6 +13,7 @@ import type {
   FilterApi,
   FunctionReference,
 } from "convex/server";
+import type * as diapers from "../diapers.js";
 import type * as feedings from "../feedings.js";
 
 /**
@@ -24,6 +25,7 @@ import type * as feedings from "../feedings.js";
  * ```
  */
 declare const fullApi: ApiFromModules<{
+  diapers: typeof diapers;
   feedings: typeof feedings;
 }>;
 export declare const api: FilterApi<

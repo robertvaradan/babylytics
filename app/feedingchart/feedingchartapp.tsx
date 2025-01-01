@@ -1,5 +1,6 @@
 import { Flex, Tabs } from '@radix-ui/themes'
 import FeedingChart from './components/chart/feedingchart/feedingchart'
+import { DiaperChart } from './components/chart/diaperchart/diaperchart'
 
 export default function FeedingChartApp() {
     return (
@@ -14,6 +15,7 @@ export default function FeedingChartApp() {
                         className="TabsTrigger"
                         style={{ flexGrow: '1', height: '64px' }}
                         value="feedings"
+                        data-accent-color="blue"
                     >
                         Feedings
                     </Tabs.Trigger>
@@ -21,6 +23,7 @@ export default function FeedingChartApp() {
                         className="TabsTrigger"
                         style={{ flexGrow: '1', height: '64px' }}
                         value="diapers"
+                        data-accent-color="purple"
                     >
                         Diapers
                     </Tabs.Trigger>
@@ -33,10 +36,10 @@ export default function FeedingChartApp() {
                 <FeedingChart></FeedingChart>
             </Tabs.Content>
             <Tabs.Content
-                className="TabsContent flex flex-col flex-grow p-4"
+                className="TabsContent flex flex-col flex-grow min-h-0"
                 value="diapers"
             >
-                Nothing here yet :)
+                <DiaperChart></DiaperChart>
             </Tabs.Content>
         </Tabs.Root>
     )
