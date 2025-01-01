@@ -26,6 +26,18 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" suppressHydrationWarning>
+            <head>
+                <meta
+                    name="apple-mobile-web-app-status-bar-style"
+                    media="(prefers-color-scheme: light)"
+                    content="#fff"
+                />
+                <meta
+                    name="apple-mobile-web-app-status-bar-style"
+                    media="(prefers-color-scheme: dark)"
+                    content="color(display-p3 0.067 0.067 0.074)"
+                />
+            </head>
             <body
                 className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-hidden overscroll-none`}
             >
