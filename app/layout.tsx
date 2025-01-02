@@ -30,6 +30,10 @@ export default function RootLayout({
                 <meta name="mobile-web-app-capable" content="yes" />
                 <meta name="apple-mobile-web-app-capable" content="yes" />
                 <meta
+                    name="viewport"
+                    content="width=device-width, height=device-height, initial-scale=1.0, viewport-fit=contain"
+                />
+                <meta
                     name="apple-mobile-web-app-status-bar-style"
                     media="(prefers-color-scheme: light)"
                     content="default"
