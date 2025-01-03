@@ -3,11 +3,11 @@
 import { fromRawFeeding } from '@feedingchart/app/feedingchart/model/feeding'
 import { useQuery } from 'convex/react'
 import { api } from '@feedingchart/convex/_generated/api'
-import { FeedingEntryItem } from './feedingentry'
 import { Button, Flex } from '@radix-ui/themes'
 import { useRouter } from 'next/navigation'
 import { ChartCounter } from '../common/chartcounter'
 import { createRef } from 'react'
+import { FeedingEntryItem } from './feedingentry'
 
 export default function FeedingChart() {
     const feedingEntries =
@@ -34,7 +34,7 @@ export default function FeedingChart() {
                 ></ChartCounter>
             )}
             <div
-                className="flex flex-col gap-4 h-full overflow-y-auto no-scrollbar"
+                className="flex flex-col gap-4 overflow-y-auto no-scrollbar flex-grow"
                 ref={scrollBody}
             >
                 {feedingEntries.map((feedingEntry, i) => (

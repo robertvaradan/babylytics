@@ -31,7 +31,7 @@ export default function RootLayout({
                 <meta name="apple-mobile-web-app-capable" content="yes" />
                 <meta
                     name="viewport"
-                    content="width=device-width, height=device-height, initial-scale=1.0, viewport-fit=contain"
+                    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
                 />
                 <meta
                     name="apple-mobile-web-app-status-bar-style"
@@ -45,7 +45,7 @@ export default function RootLayout({
                 />
             </head>
             <body
-                className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-hidden overscroll-none`}
+                className={`${geistSans.variable} ${geistMono.variable} antialiased overscroll-none min-h-dvh`}
             >
                 <ConvexClientProvider>{children}</ConvexClientProvider>
             </body>

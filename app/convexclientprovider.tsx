@@ -33,7 +33,7 @@ export function ConvexClientProvider({ children }: { children: ReactNode }) {
     }, [])
 
     return (
-        <Theme appearance={appearance}>
+        <Theme appearance={appearance} className="flex safe-margin">
             <ConvexProvider client={convex}>{children}</ConvexProvider>
         </Theme>
     )

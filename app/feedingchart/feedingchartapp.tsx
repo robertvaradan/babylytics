@@ -18,7 +18,7 @@ function FeedingChartAppContent() {
     const tab = searchParams.get('tab') ?? 'feedings'
 
     return (
-        <Tabs.Root className="flex flex-col h-dvh" defaultValue={tab}>
+        <Tabs.Root className="flex flex-col flex-1" defaultValue={tab}>
             <Tabs.List
                 className="TabsList flex-shrink-0"
                 aria-label="Choose chart type"
@@ -44,13 +44,13 @@ function FeedingChartAppContent() {
                 </Flex>
             </Tabs.List>
             <Tabs.Content
-                className="TabsContent flex flex-col flex-grow min-h-0"
+                className="TabsContent flex flex-col min-h-0 flex-1"
                 value="feedings"
             >
                 <FeedingChart></FeedingChart>
             </Tabs.Content>
             <Tabs.Content
-                className="TabsContent flex flex-col flex-grow min-h-0"
+                className="TabsContent flex flex-col min-h-0 flex-1"
                 value="diapers"
             >
                 <DiaperChart></DiaperChart>

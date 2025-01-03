@@ -65,7 +65,7 @@ export default function LogDiaperView({ editDiaper }: { editDiaper?: Diaper }) {
     const background = `linear-gradient(to right, ${purple.purple12}, ${purple.purple9})`
 
     return (
-        <Flex direction="column" className="h-dvh">
+        <Flex direction="column">
             {editDiaper && (
                 <Box
                     className="p-4"

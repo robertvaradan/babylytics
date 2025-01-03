@@ -15,7 +15,7 @@ export default function EditFeeding() {
     })
 
     return (
-        <Box className="h-dvh">
+        <Box>
             {feedingToEdit && (
                 <LogFeedingView
                     editFeeding={fromRawFeeding(feedingToEdit)}

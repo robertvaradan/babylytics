@@ -34,7 +34,7 @@ export function DiaperChart() {
                 ></ChartCounter>
             )}
             <div
-                className="flex flex-col gap-4 h-full overflow-y-auto no-scrollbar"
+                className="flex flex-col gap-4 overflow-y-auto no-scrollbar flex-grow"
                 ref={scrollBody}
             >
                 {diaperEntries.map((diaperEntry, i) => (

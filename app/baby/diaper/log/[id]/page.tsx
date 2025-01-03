@@ -15,7 +15,7 @@ export default function EditDiaper() {
     })
 
     return (
-        <Box className="h-dvh">
+        <Box>
             {diaperToEdit && (
                 <LogDiaperView
                     editDiaper={fromRawDiaperEntry(diaperToEdit)}
