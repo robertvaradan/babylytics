@@ -3,7 +3,6 @@ import LogFeedingView from '@feedingchart/app/feedingchart/components/log/logfee
 import { fromRawFeeding } from '@feedingchart/app/feedingchart/model/feeding'
 import { api } from '@feedingchart/convex/_generated/api'
 import { Id } from '@feedingchart/convex/_generated/dataModel'
-import { Box } from '@radix-ui/themes'
 import { useQuery } from 'convex/react'
 import { useParams } from 'next/navigation'
 
@@ -15,12 +14,12 @@ export default function EditFeeding() {
     })
 
     return (
-        <Box>
+        <>
             {feedingToEdit && (
                 <LogFeedingView
                     editFeeding={fromRawFeeding(feedingToEdit)}
                 ></LogFeedingView>
             )}
-        </Box>
+        </>
     )
 }

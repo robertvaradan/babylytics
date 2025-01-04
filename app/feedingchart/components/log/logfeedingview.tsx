@@ -181,6 +181,7 @@ export default function LogFeedingView({
                     <Button
                         size="4"
                         color={screen < Screen.Confirm ? 'blue' : 'green'}
+                        style={{ marginBottom: '16px' }}
                         onClick={() => {
                             if (screen < Screen.Confirm) {
                                 setScreen(screen + 1)
