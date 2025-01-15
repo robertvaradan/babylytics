@@ -83,7 +83,7 @@ export default function LogFeedingView({
     const background = `linear-gradient(to right, ${blue.blue12}, ${blue.blue9})`
 
     return (
-        <Flex direction="column">
+        <Flex direction="column" flexGrow="1">
             {editFeeding && (
                 <Box
                     className="p-4"
