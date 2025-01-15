@@ -1,11 +1,25 @@
 'use client'
-import { SignUp } from '@clerk/nextjs'
-import { Box } from '@radix-ui/themes'
+import { ClerkProvider, SignUp } from '@clerk/nextjs'
+import { dark } from '@clerk/themes'
+import { Box, useThemeContext } from '@radix-ui/themes'
 
 export default function SignUpPage() {
+    const themeContext = useThemeContext()
+
     return (
-        <Box m="auto">
-            <SignUp fallbackRedirectUrl="/baby"></SignUp>
-        </Box>
+        <ClerkProvider>
+            <Box m="auto">
+                <SignUp
+                    appearance={
+                        themeContext.appearance === 'dark'
+                            ? {
+                                  baseTheme: dark,
+                              }
+                            : undefined
+                    }
+                    fallbackRedirectUrl="/baby"
+                ></SignUp>
+            </Box>
+        </ClerkProvider>
     )
 }
