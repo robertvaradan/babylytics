@@ -11,6 +11,12 @@ Babylytics is a simple baby tracking application designed to help parents keep t
 -   **Real-time Updates**: The application updates in real-time, ensuring that users have access to the most recent data.
 -   **Customizable**: The application is highly customizable, allowing users to tailor the experience to their specific needs.
 
+|                                                                          |                                                                           |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------- |
+| ![Feedings page](/doc/screen1.png?raw=true, 'Feedings page')             | ![Diaper change page](/doc/screen2.png?raw=true, 'Diaper change page')    |
+| ![Log feeding page](/doc/screen3.png?raw=true, 'Log feeding page (1/2)') | ![Log feeding page 2](/doc/screen4.png?raw=true, 'Log diaper page (2/2)') |
+| ![Edit diaper page](/doc/screen5.png?raw=true, 'Edit diaper page')       |                                                                           |
+
 ## Getting Started
 
 Access my live verison of the website [here](https://baby.woolly.one)
