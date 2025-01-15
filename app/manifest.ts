@@ -5,6 +5,6 @@ export default function manifest(): MetadataRoute.Manifest {
         short_name: 'Babylytics',
         name: 'Babylytics',
         display: 'standalone',
-        start_url: '/baby',
+        start_url: '/',
     }
 }

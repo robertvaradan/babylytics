@@ -41,7 +41,7 @@ export function DiaperEntryItem({
                     removeDiaper({ id: diaper._id as Id<'diapers'> })
                 }
             }}
-            onEdit={() => router.push(`/baby/diaper/log/${diaper._id}`)}
+            onEdit={() => router.push(`/diaper/log/${diaper._id}`)}
         >
             <Box>
                 <Text

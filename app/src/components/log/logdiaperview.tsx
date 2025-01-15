@@ -110,7 +110,7 @@ export default function LogDiaperView({ editDiaper }: { editDiaper?: Diaper }) {
                         className="bor"
                         variant="surface"
                         onClick={() => {
-                            router.push('/baby?tab=diapers')
+                            router.push('/?tab=diapers')
                         }}
                     >
                         <Cross1Icon></Cross1Icon>
@@ -193,7 +193,7 @@ export default function LogDiaperView({ editDiaper }: { editDiaper?: Diaper }) {
                                 })
                             }
 
-                            router.push('/baby?tab=diapers')
+                            router.push('/?tab=diapers')
                         }}
                     >
                         {screen < Screen.Confirm ? 'Next' : 'Confirm and log'}

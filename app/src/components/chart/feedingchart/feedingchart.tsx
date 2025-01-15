@@ -56,7 +56,7 @@ export default function FeedingChart() {
                 color="blue"
                 size="4"
                 style={{ marginBottom: '16px' }}
-                onClick={() => router.push('/baby/feeding/log')}
+                onClick={() => router.push('/feeding/log')}
             >
                 Log a feeding
             </Button>

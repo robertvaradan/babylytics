@@ -39,7 +39,7 @@ export function FeedingEntryItem({
                     removeFeeding({ id: feedingEntry._id as Id<'feedings'> })
                 }
             }}
-            onEdit={() => router.push(`/baby/feeding/log/${feedingEntry._id}`)}
+            onEdit={() => router.push(`/feeding/log/${feedingEntry._id}`)}
         >
             <Flex gap="4" align="center">
                 <Box>

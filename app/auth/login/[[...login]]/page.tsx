@@ -17,7 +17,7 @@ export default function Login() {
                               }
                             : undefined
                     }
-                    fallbackRedirectUrl="/baby"
+                    fallbackRedirectUrl="/"
                 ></SignIn>
             </Box>
         </ClerkProvider>

@@ -55,7 +55,7 @@ export function DiaperChart() {
                 color="purple"
                 size="4"
                 style={{ marginBottom: '16px' }}
-                onClick={() => router.push('/baby/diaper/log')}
+                onClick={() => router.push('/diaper/log')}
             >
                 Log a diaper change
             </Button>

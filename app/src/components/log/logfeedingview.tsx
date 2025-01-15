@@ -130,7 +130,7 @@ export default function LogFeedingView({
                         className="bor"
                         variant="surface"
                         onClick={() => {
-                            router.push('/baby')
+                            router.push('/')
                         }}
                     >
                         <Cross1Icon></Cross1Icon>
@@ -204,7 +204,7 @@ export default function LogFeedingView({
                                 })
                             }
 
-                            router.push('/baby')
+                            router.push('/')
                         }}
                     >
                         {screen < Screen.Confirm ? 'Next' : 'Confirm and log'}
