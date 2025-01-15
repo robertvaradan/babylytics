@@ -1,8 +1,5 @@
 'use client'
-import {
-    FeedingEntry,
-    FeedingType,
-} from '@feedingchart/app/feedingchart/model/feeding'
+import { FeedingEntry, FeedingType } from '@babylytics/app/src/model/feeding'
 import { Cross1Icon } from '@radix-ui/react-icons'
 import { Box, Button, Flex, Heading, IconButton } from '@radix-ui/themes'
 import { useRouter } from 'next/navigation'
@@ -12,9 +9,10 @@ import { FeedingDurationScreen } from './feedingdurationscreen'
 import { ConfirmScreen } from './confirmscreen'
 import { DateScreen } from './datescreen'
 import { useMutation } from 'convex/react'
-import { api } from '@feedingchart/convex/_generated/api'
-import { Id } from '@feedingchart/convex/_generated/dataModel'
+import { api } from '@babylytics/convex/_generated/api'
+import { Id } from '@babylytics/convex/_generated/dataModel'
 import { blue, whiteP3A } from '@radix-ui/colors'
+import { useUser } from '@clerk/nextjs'
 
 enum Screen {
     Date = 0,
@@ -71,9 +69,10 @@ export default function LogFeedingView({
 
     const insertFeeding = useMutation(api.feedings.insert)
     const updateFeeding = useMutation(api.feedings.update)
+    const user = useUser()
 
     const feeding = {
-        userId: '1',
+        userId: user.user?.id ?? '',
         time: new Date(`${dateString}T${timeString}`),
         durationL: type !== FeedingType.Breast ? 0 : leftDuration,
         durationR: type !== FeedingType.Breast ? 0 : rightDuration,
@@ -119,12 +118,12 @@ export default function LogFeedingView({
                         {screen === Screen.Date
                             ? 'When was the feeding?'
                             : screen === Screen.Type
-                            ? 'What type of feeding was it?'
-                            : screen === Screen.DurationOrAmount
-                            ? type === FeedingType.Breast
-                                ? 'How long was it on each side?'
-                                : 'How much was it?'
-                            : 'Does this look right?'}
+                              ? 'What type of feeding was it?'
+                              : screen === Screen.DurationOrAmount
+                                ? type === FeedingType.Breast
+                                    ? 'How long was it on each side?'
+                                    : 'How much was it?'
+                                : 'Does this look right?'}
                     </Heading>
                     <IconButton
                         color="red"

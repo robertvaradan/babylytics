@@ -1,4 +1,4 @@
-import LogFeedingView from '@feedingchart/app/feedingchart/components/log/logfeedingview'
+import LogFeedingView from '@babylytics/app/src/components/log/logfeedingview'
 
 export default function Log() {
     return <LogFeedingView></LogFeedingView>

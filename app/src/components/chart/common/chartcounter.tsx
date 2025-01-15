@@ -1,4 +1,4 @@
-import { RadixColor } from '@feedingchart/app/feedingchart/util/colors'
+import { RadixColor } from '@babylytics/app/src/util/colors'
 import { ClockIcon } from '@radix-ui/react-icons'
 import { Button, Callout } from '@radix-ui/themes'
 import moment from 'moment'

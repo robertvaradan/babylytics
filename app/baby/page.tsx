@@ -1,5 +1,5 @@
-import FeedingChartApp from '../feedingchart/feedingchartapp'
+import BabylyticsApp from '@babylytics/app/src/babylyticsapp'
 
-export default function Home() {
-    return <FeedingChartApp />
+export default function App() {
+    return <BabylyticsApp />
 }

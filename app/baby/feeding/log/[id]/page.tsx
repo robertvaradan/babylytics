@@ -1,8 +1,8 @@
 'use client'
-import LogFeedingView from '@feedingchart/app/feedingchart/components/log/logfeedingview'
-import { fromRawFeeding } from '@feedingchart/app/feedingchart/model/feeding'
-import { api } from '@feedingchart/convex/_generated/api'
-import { Id } from '@feedingchart/convex/_generated/dataModel'
+import LogFeedingView from '@babylytics/app/src/components/log/logfeedingview'
+import { fromRawFeeding } from '@babylytics/app/src/model/feeding'
+import { api } from '@babylytics/convex/_generated/api'
+import { Id } from '@babylytics/convex/_generated/dataModel'
 import { useQuery } from 'convex/react'
 import { useParams } from 'next/navigation'
 

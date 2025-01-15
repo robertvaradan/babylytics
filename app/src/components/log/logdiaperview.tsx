@@ -6,11 +6,12 @@ import { useState } from 'react'
 import { ConfirmScreen } from './confirmscreen'
 import { DateScreen } from './datescreen'
 import { useMutation } from 'convex/react'
-import { api } from '@feedingchart/convex/_generated/api'
-import { Id } from '@feedingchart/convex/_generated/dataModel'
+import { api } from '@babylytics/convex/_generated/api'
+import { Id } from '@babylytics/convex/_generated/dataModel'
 import { purple, whiteP3A } from '@radix-ui/colors'
 import { Diaper, DiaperType } from '../../model/diaper'
 import { DiaperTypesScreen } from './diapertypesscreen'
+import { useUser } from '@clerk/nextjs'
 
 enum Screen {
     Date = 0,
@@ -54,10 +55,11 @@ export default function LogDiaperView({ editDiaper }: { editDiaper?: Diaper }) {
 
     const insertDiaper = useMutation(api.diapers.insert)
     const updateDiaper = useMutation(api.diapers.update)
+    const user = useUser()
 
     const diaper = {
         _id: '',
-        userId: '1',
+        userId: user.user?.id ?? '',
         time: new Date(`${dateString}T${timeString}`),
         types,
     }
@@ -100,8 +102,8 @@ export default function LogDiaperView({ editDiaper }: { editDiaper?: Diaper }) {
                         {screen === Screen.Date
                             ? 'When was the diaper change?'
                             : screen === Screen.Type
-                            ? 'What type of diaper was it?'
-                            : 'Does this look right?'}
+                              ? 'What type of diaper was it?'
+                              : 'Does this look right?'}
                     </Heading>
                     <IconButton
                         color="red"

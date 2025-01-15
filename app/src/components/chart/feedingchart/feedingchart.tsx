@@ -1,28 +1,32 @@
 'use client'
-import { api } from '@feedingchart/convex/_generated/api'
-import { Flex, Button } from '@radix-ui/themes'
+
 import { useQuery } from 'convex/react'
+import { api } from '@babylytics/convex/_generated/api'
+import { Button, Flex } from '@radix-ui/themes'
 import { useRouter } from 'next/navigation'
-import { fromRawDiaperEntry } from '@feedingchart/app/feedingchart/model/diaper'
-import { DiaperEntryItem } from './diaperentry'
 import { ChartCounter } from '../common/chartcounter'
 import { createRef } from 'react'
+import { FeedingEntryItem } from './feedingentry'
+import { fromRawFeeding } from '@babylytics/app/src/model/feeding'
+import { useUser } from '@clerk/nextjs'
 
-export function DiaperChart() {
-    const diaperEntries =
-        useQuery(api.diapers.list, { userId: '1' })?.map(fromRawDiaperEntry) ??
-        []
+export default function FeedingChart() {
+    const user = useUser()
+    const feedingEntries =
+        useQuery(api.feedings.get, { userId: user.user?.id ?? '' })?.map(
+            fromRawFeeding
+        ) ?? []
     const router = useRouter()
 
     const scrollBody = createRef<HTMLDivElement>()
 
     return (
         <Flex direction="column" className="p-4 min-h-0" flexGrow="1" gap="4">
-            {diaperEntries.length > 0 && (
+            {feedingEntries.length > 0 && (
                 <ChartCounter
-                    title="Last diaper change logged"
-                    startTime={diaperEntries[0].time}
-                    color="purple"
+                    title="Last feeding logged"
+                    startTime={feedingEntries[0].time}
+                    color="blue"
                     onClick={() => {
                         if (scrollBody.current) {
                             scrollBody.current.scrollTo({
@@ -37,24 +41,24 @@ export function DiaperChart() {
                 className="flex flex-col gap-4 overflow-y-auto no-scrollbar flex-grow"
                 ref={scrollBody}
             >
-                {diaperEntries.map((diaperEntry, i) => (
-                    <DiaperEntryItem
-                        key={diaperEntry._id}
-                        diaper={diaperEntry}
+                {feedingEntries.map((feedingEntry, i) => (
+                    <FeedingEntryItem
+                        key={feedingEntry._id}
+                        feedingEntry={feedingEntry}
                         highlightDay={
-                            diaperEntry.time.getDay() !=
-                            diaperEntries[i - 1]?.time.getDay()
+                            feedingEntry.time.getDay() !=
+                            feedingEntries[i - 1]?.time.getDay()
                         }
-                    ></DiaperEntryItem>
+                    ></FeedingEntryItem>
                 ))}
             </div>
             <Button
-                color="purple"
+                color="blue"
                 size="4"
                 style={{ marginBottom: '16px' }}
-                onClick={() => router.push('/baby/diaper/log')}
+                onClick={() => router.push('/baby/feeding/log')}
             >
-                Log a diaper change
+                Log a feeding
             </Button>
         </Flex>
     )

@@ -1,7 +1,9 @@
 'use client'
 
+import { useAuth } from '@clerk/nextjs'
 import { Theme } from '@radix-ui/themes'
-import { ConvexProvider, ConvexReactClient } from 'convex/react'
+import { ConvexReactClient } from 'convex/react'
+import { ConvexProviderWithClerk } from 'convex/react-clerk'
 import { ReactNode, useEffect, useState } from 'react'
 
 const convex = new ConvexReactClient(process.env.NEXT_PUBLIC_CONVEX_URL!)
@@ -34,7 +36,9 @@ export function ConvexClientProvider({ children }: { children: ReactNode }) {
 
     return (
         <Theme appearance={appearance} className="flex safe-margin">
-            <ConvexProvider client={convex}>{children}</ConvexProvider>
+            <ConvexProviderWithClerk client={convex} useAuth={useAuth}>
+                {children}
+            </ConvexProviderWithClerk>
         </Theme>
     )
 }

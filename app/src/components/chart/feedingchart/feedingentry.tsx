@@ -1,9 +1,6 @@
-import {
-    FeedingEntry,
-    FeedingType,
-} from '@feedingchart/app/feedingchart/model/feeding'
-import { api } from '@feedingchart/convex/_generated/api'
-import { Id } from '@feedingchart/convex/_generated/dataModel'
+import { FeedingEntry, FeedingType } from '@babylytics/app/src/model/feeding'
+import { api } from '@babylytics/convex/_generated/api'
+import { Id } from '@babylytics/convex/_generated/dataModel'
 import { Flex, Text, Badge, Box } from '@radix-ui/themes'
 import { useMutation } from 'convex/react'
 import { useRouter } from 'next/navigation'
@@ -21,23 +18,27 @@ export function FeedingEntryItem({
 
     return (
         <EntryCard
-            onDelete={() =>
-                confirm(
-                    `Are you sure you want to delete this feeding entry from ${new Date(
-                        feedingEntry.time
-                    ).toLocaleDateString('en-US', {
-                        day: 'numeric',
-                        month: 'short',
-                        year: 'numeric',
-                    })} at ${new Date(feedingEntry.time).toLocaleTimeString(
-                        'en-US',
-                        {
-                            hour: 'numeric',
-                            minute: 'numeric',
-                        }
-                    )}?`
-                ) && removeFeeding({ id: feedingEntry._id as Id<'feedings'> })
-            }
+            onDelete={() => {
+                if (
+                    confirm(
+                        `Are you sure you want to delete this feeding entry from ${new Date(
+                            feedingEntry.time
+                        ).toLocaleDateString('en-US', {
+                            day: 'numeric',
+                            month: 'short',
+                            year: 'numeric',
+                        })} at ${new Date(feedingEntry.time).toLocaleTimeString(
+                            'en-US',
+                            {
+                                hour: 'numeric',
+                                minute: 'numeric',
+                            }
+                        )}?`
+                    )
+                ) {
+                    removeFeeding({ id: feedingEntry._id as Id<'feedings'> })
+                }
+            }}
             onEdit={() => router.push(`/baby/feeding/log/${feedingEntry._id}`)}
         >
             <Flex gap="4" align="center">
@@ -67,15 +68,15 @@ export function FeedingEntryItem({
                     feedingEntry.type === FeedingType.Breast
                         ? 'blue'
                         : feedingEntry.type === FeedingType.Donor
-                        ? 'green'
-                        : 'orange'
+                          ? 'green'
+                          : 'orange'
                 }
             >
                 {feedingEntry.type === FeedingType.Breast
                     ? 'Breast'
                     : feedingEntry.type === FeedingType.Formula
-                    ? 'Formula'
-                    : 'Donor'}
+                      ? 'Formula'
+                      : 'Donor'}
             </Badge>
             <Box>
                 {feedingEntry.type != FeedingType.Breast ? (

@@ -5,15 +5,15 @@ import { DiaperChart } from './components/chart/diaperchart/diaperchart'
 import { useSearchParams } from 'next/navigation'
 import { Suspense } from 'react'
 
-export default function FeedingChartApp() {
+export default function BabylyticsApp() {
     return (
         <Suspense fallback={<div>Loading...</div>}>
-            <FeedingChartAppContent></FeedingChartAppContent>
+            <BabylyticsAppContent></BabylyticsAppContent>
         </Suspense>
     )
 }
 
-function FeedingChartAppContent() {
+function BabylyticsAppContent() {
     const searchParams = useSearchParams()
     const tab = searchParams.get('tab') ?? 'feedings'
 
